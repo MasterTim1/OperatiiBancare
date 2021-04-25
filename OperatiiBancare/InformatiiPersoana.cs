@@ -14,11 +14,12 @@ namespace OperatiiBancare
         public string Prenume;
         public string NumarulCardului;
         public string DataExpirarii;
+        public string CCV;
 
         public string TelefonMobil;
         public string Email;
-
-        public DateTime DataAdaugarii;
+        
+        private DateTime DataAdaugarii;
         /// <summary>
         ///  Constructor fara parametrii
         /// </summary>
@@ -28,6 +29,8 @@ namespace OperatiiBancare
 
             TelefonMobil = "-";
             Email = "-";
+
+            DataAdaugarii = DateTime.Now;
         }
        
         /// <summary>
@@ -45,9 +48,18 @@ namespace OperatiiBancare
 
         }
 
+        /// <summary>
+        /// Scurta descriere a persoanei
+        /// </summary>
+        /// <returns></returns>
         public string DescriereScurta()
         {
             return "Persoana are numele: " + Nume +" "+ Prenume + " si numarul de telefon: " + TelefonMobil;
+        }
+
+        public string CandAFostAdaugat()
+        {
+            return DataAdaugarii.ToString();
         }
     }
 }
