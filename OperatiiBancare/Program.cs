@@ -6,9 +6,14 @@ namespace OperatiiBancare
     {
         static void Main(string[] args)
         {
+            InformatiiPersoana persoana = new InformatiiPersoana("Grigoriciuc","Timotei ", "074812...");
             
 
-            Console.WriteLine("Hello World!");
+            string descriere = persoana.DescriereScurta();
+            Console.WriteLine(descriere);
+            Console.ReadKey();
+
+            
         }
     }
 }
