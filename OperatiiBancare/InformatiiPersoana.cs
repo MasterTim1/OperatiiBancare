@@ -20,8 +20,10 @@ namespace OperatiiBancare
         public string Email;
         
         private DateTime DataAdaugarii;
+        private string v;
+
         /// <summary>
-        ///  Constructor fara parametrii
+        ///  Constructor fara parametrii (implicit)
         /// </summary>
         public InformatiiPersoana()
         {
@@ -47,14 +49,33 @@ namespace OperatiiBancare
 
 
         }
+        public InformatiiPersoana(string info)
+        {
+            string[] vdate = info.Split(',');
 
+            Nume = vdate[0];
+            Prenume = vdate[1];
+          NumarulCardului = vdate[2];
+        }
+
+
+        public bool CompararePersoana(InformatiiPersoana p)
+        {
+            if (String.Compare(this.Nume, p.Nume) == 0)
+                if (String.Compare(this.Prenume, p.Prenume) == 0)
+                    if (String.Compare(this.NumarulCardului, p.NumarulCardului) == 0)
+                        return true;
+            return false;
+
+        }
+       
         /// <summary>
         /// Scurta descriere a persoanei
         /// </summary>
         /// <returns></returns>
-        public string DescriereScurta()
+        public string ConversieLaSir()
         {
-            return "Persoana are numele: " + Nume +" "+ Prenume + " si numarul de telefon: " + TelefonMobil;
+            return  Nume + Prenume +  NumarulCardului;
         }
 
         public string CandAFostAdaugat()
